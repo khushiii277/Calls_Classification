@@ -14,9 +14,25 @@ HEADERS = {
     "service-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6InNhbWFydGggc2VydmljZS10b2tlbiIsImlhdCI6MTczMTA1OTgxN30.GCb-eCRsOaQ06FhAnR_42HXzYsyg-AAJLqxUGzVto44" # use your valid token
 }
 
+def download_embedder_from_drive(drive_url, dest_path):
+    print("⬇️ Downloading sentence embedder from Google Drive...")
+    response = requests.get(drive_url)
+    if response.status_code == 200:
+        with open(dest_path, 'wb') as f:
+            f.write(response.content)
+        print(f"✅ Embedder downloaded to {dest_path}")
+    else:
+        raise Exception(f"❌ Failed to download embedder: {response.status_code}")
+
 MODEL_PATH = "pipeline/corr_model1.pkl"
 ENCODER_PATH = "pipeline/corr_label_encoder1.pkl"
 EMBEDDER_PATH = "pipeline/corr_sentence_embedder1.pkl"
+DRIVE_URL = "https://drive.google.com/uc?export=download&id=1kffteM5sLxCVh3TmlKyH26GTz-cU-944"
+
+# Download if not exists
+if not os.path.exists(EMBEDDER_PATH):
+    download_embedder_from_drive(DRIVE_URL, EMBEDDER_PATH)
+
 
 # EMAIL SETTINGS
 SMTP_SERVER = "smtp.gmail.com"
