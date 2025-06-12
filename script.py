@@ -72,7 +72,7 @@ def run_predictions(df):
 def send_email(attachment_path, start_dt, end_dt):
     msg = MIMEMultipart()
     msg['From'] = EMAIL_SENDER
-    msg['To'] = EMAIL_RECEIVER
+    msg["To"] = ", ".join(EMAIL_RECEIVER)  # visible in inbox
     msg['Subject'] = f"Call Predictions: {start_dt.date()} to {end_dt.date()}"
 
     body = f"Attached📎: Weekly prediction report for {start_dt.date()} to {end_dt.date()}."
@@ -86,8 +86,9 @@ def send_email(attachment_path, start_dt, end_dt):
     context = ssl.create_default_context()
     with smtplib.SMTP_SSL(SMTP_SERVER, SMTP_PORT, context=context) as server:
         server.login(EMAIL_SENDER, EMAIL_PASSWORD)
-        server.send_message(msg)
-    print(f"📧 Email sent to {EMAIL_RECEIVER}")
+        server.sendmail(EMAIL_SENDER, EMAIL_RECEIVER, msg.as_string())  # <-- send to all
+
+    print(f"📧 Email sent to: {', '.join(EMAIL_RECEIVER)}")
 
 # === MAIN ===
 if __name__=="__main__":
