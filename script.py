@@ -10,7 +10,9 @@ import os
 
 # === CONFIG ===
 API_URL = "https://ops.samarthonline.in/api/v1/calls"
-HEADERS = { "service-token": "YOUR_SERVICE_TOKEN" }
+HEADERS = {
+    "service-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6InNhbWFydGggc2VydmljZS10b2tlbiIsImlhdCI6MTczMTA1OTgxN30.GCb-eCRsOaQ06FhAnR_42HXzYsyg-AAJLqxUGzVto44" # use your valid token
+}
 
 MODEL_PATH = "pipeline/corr_model1.pkl"
 ENCODER_PATH = "pipeline/corr_label_encoder1.pkl"
