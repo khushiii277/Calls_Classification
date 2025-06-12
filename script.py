@@ -21,7 +21,7 @@ SMTP_SERVER = "smtp.gmail.com"
 SMTP_PORT = 465  # or use 587 for STARTTLS
 EMAIL_SENDER = os.environ.get("EMAIL_SENDER")
 EMAIL_PASSWORD = os.environ.get("EMAIL_PASSWORD")
-EMAIL_RECEIVER = os.environ.get("EMAIL_RECEIVER")
+EMAIL_RECEIVER = os.environ["EMAIL_RECEIVER"].split(",")
 
 OUTPUT_COLUMNS = [
     "id", "accountTitle", "scheduleDate", "callByUserName",
