@@ -2,7 +2,7 @@ name: Weekly Prediction Pipeline
 
 on:
   schedule:
-    - cron: '50 5 * * 5'  # Every Friday at 11:20 AM IST (05:50 UTC)
+    - cron: '0 5 * * 1'  # Every Monday at 10:30 AM IST (05:00 UTC)
   workflow_dispatch:
 
 jobs:
