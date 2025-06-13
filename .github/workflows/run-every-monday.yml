@@ -2,7 +2,7 @@ name: Weekly Prediction Pipeline
 
 on:
   schedule:
-    - cron: '15 5 * * 5'  # Every Friday at 10:45 AM IST (05:15 UTC)
+    - cron: '37 5 * * 5'  # Every Friday at 11:07 AM IST (05:37 UTC)
   workflow_dispatch:
 
 jobs:
@@ -12,6 +12,12 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+
+      - name: Log workflow start time
+        run: |
+          echo "🔁 Workflow triggered at:"
+          echo "🕒 UTC  : $(date -u)"
+          echo "🕒 IST  : $(TZ='Asia/Kolkata' date)"
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -23,14 +29,10 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Log UTC and IST time
-        run: |
-          echo "UTC Time: $(date -u)"
-          echo "IST Time: $(TZ='Asia/Kolkata' date)"
-
       - name: Run Python script
         env:
           EMAIL_SENDER: ${{ secrets.EMAIL_SENDER }}
           EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
           EMAIL_RECEIVER: ${{ secrets.EMAIL_RECEIVER }}
         run: python script.py
+
