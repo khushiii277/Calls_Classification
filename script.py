@@ -81,7 +81,7 @@ def run_predictions(df):
     results = []
     for rpt, name, sc in zip(df['report'], pred_names, scores):
         if len(rpt) < 50:
-            results.append(('Insufficient', 0.00))
+            results.append(('Not Useful', 0.00))
         else:
             results.append((name, round(sc,2)))
     df['Useful/Not Useful'], df['Confidence'] = zip(*results)
