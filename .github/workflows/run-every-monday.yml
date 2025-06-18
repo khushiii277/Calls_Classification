@@ -2,7 +2,7 @@ name: Daily Prediction Pipeline
 
 on:
   schedule:
-    - cron: '7 9 * * *'  # Every day at 2:37 PM IST (09:07 UTC)
+    - cron: cron: '30 3 * * *'  # Every day at 9:00 AM IST (03:30 UTC)
   workflow_dispatch:
 
 jobs:
