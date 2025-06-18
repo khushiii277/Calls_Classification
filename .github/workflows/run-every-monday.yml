@@ -1,8 +1,8 @@
-name: Weekly Prediction Pipeline
+name: Daily Prediction Pipeline
 
 on:
   schedule:
-    - cron: '0 5 * * 1'  # Every Monday at 10:30 AM IST (05:00 UTC)
+    - cron: '30 3 * * *'  # Every day at 09:00 AM IST (03:30 UTC)
   workflow_dispatch:
 
 jobs:
@@ -35,4 +35,3 @@ jobs:
           EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
           EMAIL_RECEIVER: ${{ secrets.EMAIL_RECEIVER }}
         run: python script.py
-
