@@ -27,7 +27,7 @@ EMAIL_PASSWORD = os.environ.get("EMAIL_PASSWORD")
 EMAIL_RECEIVER = os.environ["EMAIL_RECEIVER"].split(",")
 
 OUTPUT_COLUMNS = [
-    "id", "accountTitle", "scheduleDate", "callByUserName",
+    "id", "accountTitle", "callSubmittedDate", "callByUserName",
     "report", "Useful/Not Useful", "Confidence"
 ]
 
