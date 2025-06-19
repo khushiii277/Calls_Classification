@@ -92,7 +92,7 @@ def send_email(attachment_path, start_dt, end_dt):
     msg = MIMEMultipart()
     msg['From'] = EMAIL_SENDER
     msg["To"] = ", ".join(EMAIL_RECEIVER)
-    msg['Subject'] = f"Call Predictions: {start_dt.date()}"
+    msg['Subject'] = f"Daily call list: {start_dt.date()}"
 
     body = f"Attached📎: Daily call list {start_dt.date()}."
     msg.attach(MIMEText(body, "plain"))
