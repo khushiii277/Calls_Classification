@@ -31,7 +31,7 @@ jobs:
 
       - name: Run Python script
         env:
-          EMAIL_SENDER: aisamarth2016@gmail.com
-          EMAIL_PASSWORD: ozvi lhyo ouij umkb
-          EMAIL_RECEIVER: kkhushi2707@gmail.com,madhavik.agarwal@samarth.community
+          EMAIL_SENDER: ${{ secrets.EMAIL_SENDER }}
+          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+          EMAIL_RECEIVER: ${{ secrets.EMAIL_RECEIVER }}
         run: python script.py
