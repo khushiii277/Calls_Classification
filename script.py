@@ -94,7 +94,7 @@ def send_email(attachment_path, start_dt, end_dt):
     msg["To"] = ", ".join(EMAIL_RECEIVER)
     msg['Subject'] = f"Daily call list: {start_dt.date()}"
 
-    body = f"Attached📎: Daily call list {start_dt.date()}."
+    body = f"Daily call list {start_dt.date()}."
     msg.attach(MIMEText(body, "plain"))
 
     with open(attachment_path, "rb") as f:
