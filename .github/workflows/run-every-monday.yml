@@ -33,5 +33,5 @@ jobs:
         env:
           EMAIL_SENDER: aisamarth2016@gmail.com
           EMAIL_PASSWORD: ozvi lhyo ouij umkb
-          EMAIL_RECEIVER: kkhushi2707@gmail.com
+          EMAIL_RECEIVER: gokulsinghshah041@gmail.com
         run: python script.py
